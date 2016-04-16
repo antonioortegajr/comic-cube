@@ -5,7 +5,10 @@ This is a comic shop CMS and customer interface. Because yay comic books.
 Components:
 * RESTful API located at api.comic-cube.com
 * Mobile application (iOS and Android boo Win and Blackberry)
+    - Store owner version first, removed extra views for subscribers
 * Landing site at comic-cube.com
+    - owner portal is a subdomain - subdomain root is login page
+    - subscribers only have app interface
 
 The Goal:
 
@@ -14,3 +17,14 @@ Helping drive the sales of paper comic books.
 In the end extending the longevity of the medium.
 
 This should always be a free service to any comic book shop.
+
+
+
+BUILD ORDER:
+
+1: database
+using mongo
+2: api
+3: mobile app
+4: owner desktop
+5: marketing site
