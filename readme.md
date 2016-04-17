@@ -23,8 +23,19 @@ This should always be a free service to any comic book shop.
 BUILD ORDER:
 
 1: database
-using mongo
+using - mongo
+
 2: api
+useing - express
+
 3: mobile app
-4: owner desktop
+using - react or meteor
+
+4: owner desktop portal
+using - depends on above
+
 5: marketing site
+
+
+
+
