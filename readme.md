@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/antonioortegajr/comic-cube.png?label=ready&title=Ready)](https://waffle.io/antonioortegajr/comic-cube)
 Comic Cube
 
 This is a comic shop CMS and customer interface. Because yay comic books.
