@@ -35,11 +35,6 @@
                       <li><a href="#portfolio">Portfolio <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
                       <li><a href="#team">Team <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
                       <li><a href="#contact">Get in Touch <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
-					  <li><% if (!user) { %>
-	<p>Welcome! Please <a href="/login">log in</a>.</p>
-<% } else { %>
-	<p>Hello, <%= user.username %>. View your <a href="/profile">profile</a>.</p>
-<% } %></li>
                     </ul>
                   </nav>
                 </div>
@@ -55,7 +50,7 @@
               </div>
               <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center inner">
-                  <h1 class="animated fadeInDown"><img src="img/logosmall.png"><!-- COMIC-<span>CUBE</span> --></h1>
+                  <h1 class="animated fadeInDown"><img src="http://comic-cube.com/img/logosmall.png"><!-- COMIC-<span>CUBE</span> --></h1>
                   <p class="animated fadeInUp delay-05s">A free way to manage and track your comic book subscribers</p>
 				  <p class="animated fadeInUp delay-05s">Are you a comic book reader? Download the app here: Link</p>
                 </div>
@@ -63,8 +58,12 @@
               <div class="row">
                 <div id="hero-btns" class="col-md-6 col-md-offset-3 text-center">
 				  <a href="#intro" class="learn-more-btn learn-more-btn-long">What does Comic-Cube do?</a>
-                  <a href="#" class="learn-more-btn">Sign Up</a>
-				  <a href="#" class="learn-more-btn">Login</a>
+				  <% if (!user) { %>
+					<a href="/login" class="learn-more-btn">Login</a>
+<% } else { %>
+	                <a href="/profile" class="learn-more-btn">Profile</a>
+<% } %>
+
                 </div>
               </div>
             </div>
@@ -165,7 +164,7 @@
                     <div class="col-md-4 wp4">
                       <div class="overlay-effect effects clearfix">
                         <div class="img">
-                          <img src="img/portfolio-01.jpg" alt="Portfolio Item">
+                          <img src="http://comic-cube.com/img/portfolio-01.jpg" alt="Portfolio Item">
                           <div class="overlay">
                             <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
                             <a class="close-overlay hidden">x</a>
@@ -178,7 +177,7 @@
                     <div class="col-md-4 wp4 delay-05s">
                       <div class="overlay-effect effects clearfix">
                         <div class="img">
-                          <img src="img/portfolio-02.jpg" alt="Portfolio Item">
+                          <img src="http://comic-cube.com/img/portfolio-02.jpg" alt="Portfolio Item">
                           <div class="overlay">
                             <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
                             <a class="close-overlay hidden">x</a>
@@ -191,7 +190,7 @@
                     <div class="col-md-4 wp4 delay-1s">
                       <div class="overlay-effect effects clearfix">
                         <div class="img">
-                          <img src="img/portfolio-03.jpg" alt="Portfolio Item">
+                          <img src="http://comic-cube.com/img/portfolio-03.jpg" alt="Portfolio Item">
                           <div class="overlay">
                             <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
                             <a class="close-overlay hidden">x</a>
@@ -229,7 +228,7 @@
                   <ul class="slides">
                     <li>
                       <div id="staff" class="col-md-4 wp5">
-                        <img src="img/ren.jpg" alt="Team Member">
+                        <img src="http://comic-cube.com/img/ren.jpg" alt="Team Member">
                         <h2>Ren Willocks</h2>
                         <p>Head of Services - Star Lord in Training</p>
                         <div class="social">
@@ -240,7 +239,7 @@
                         </div>
                       </div>
                       <div id="staff" class="col-md-4 wp5 delay-05s">
-                        <img src="img/antonio.jpg" alt="Team Member">
+                        <img src="http://comic-cube.com/img/antonio.jpg" alt="Team Member">
                         <h2>Antonio Ortega Jr.</h2>
                         <p>Lead Programmer - Beer Aficionado</p>
                         <div class="social">
@@ -323,10 +322,10 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/waypoints.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/scripts.js"></script>
-        <script src="js/jquery.flexslider.js"></script>
-        <script src="js/modernizr.js"></script>
+        <script src="http://comic-cube.com/js/waypoints.min.js"></script>
+        <script src="http://comic-cube.com/js/bootstrap.min.js"></script>
+        <script src="http://comic-cube.com/js/scripts.js"></script>
+        <script src="http://comic-cube.com/js/jquery.flexslider.js"></script>
+        <script src="http://comic-cube.com/js/modernizr.js"></script>
       </body>
     </html>
