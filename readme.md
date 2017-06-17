@@ -1,42 +1,25 @@
-[![Stories in Ready](https://badge.waffle.io/antonioortegajr/comic-cube.png?label=ready&title=Ready)](https://waffle.io/antonioortegajr/comic-cube)
-Comic Cube
+This example demonstrates how to use [Express](http://expressjs.com/) 4.x and
+[Passport](http://passportjs.org/) to authenticate users using Facebook.  Use
+this example as a starting point for your own web applications.
 
-This is a comic shop CMS and customer interface. Because yay comic books.
+## Instructions
 
-Components:
-* RESTful API located at api.comic-cube.com
-* Mobile application (iOS and Android boo Win and Blackberry)
-    - Store owner version first, removed extra views for subscribers
-* Landing site at comic-cube.com
-    - owner portal is a subdomain - subdomain root is login page
-    - subscribers only have app interface
+To install this example on your computer, clone the repository and install
+dependencies.
 
-The Goal:
+```bash
+$ git clone git@github.com:passport/express-4.x-facebook-example.git
+$ cd express-4.x-facebook-example
+$ npm install
+```
 
-To provide comic book shops with a platform to better manage the clients that order comic books weekly.
-Helping drive the sales of paper comic books.
-In the end extending the longevity of the medium.
+The example uses environment variables to configure the consumer key and
+consumer secret needed to access Facebook's API.  Start the server with those
+variables set to the appropriate credentials.
 
-This should always be a free service to any comic book shop.
+```bash
+$ CLIENT_ID=__FACEBOOK_CLIENT_ID__ CLIENT_SECRET=__FACEBOOK_CLIENT_SECRET__ node server.js
+```
 
-
-
-BUILD ORDER:
-
-1: database
-using - mongo
-
-2: api
-useing - express
-
-3: mobile app
-using - react or meteor
-
-4: owner desktop portal
-using - depends on above
-
-5: marketing site
-
-
-
-
+Open a web browser and navigate to [http://localhost:3000/](http://localhost:3000/)
+to see the example in action.

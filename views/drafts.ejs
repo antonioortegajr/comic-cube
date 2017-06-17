@@ -1,0 +1,86 @@
+<html>
+<title>Beer League</title>
+<head>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Compiled and minified CSS -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+ <!-- Compiled and minified JavaScript -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+</head>
+<body style="padding-left:5%; padding-right:5%;"">
+<main>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Beer League</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="/profile">/profile</a></li>
+        <li><a href="/drafts">/drafts</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="col s12 m7">
+  <h2 class="header">Draft</h2>
+  <h3 id="status"></h3>
+  <div id="message"></div>
+  <ul id="beers" class="collection"></ul>
+
+  <script>
+    $(document).ready(function() {
+    $('select').material_select();
+  });
+    let searchParams = new URLSearchParams(window.location.search);
+    let id = searchParams.get('id');
+    let draft = searchParams.get('draft');
+
+  //set API endpoint
+  var apiEndpoint = "https://cm2qniz6nj.execute-api.us-west-2.amazonaws.com/alpha/users";
+
+  //call API for users to check db for user ID
+  $.ajax({url: apiEndpoint+'?beerLeague='+draft, success: function(result){
+    var members = result['members']['values'];
+    var admin = result['admin']['values'];
+
+    if ($.inArray(id, members) > -1) {
+      console.log(id);
+      console.log(members);
+      console.log('in array');
+      if ($.inArray(id, admin) > -1){
+        $("#footer").html('<style>h3::after {content: " -admin";}</style>');
+      }
+    }
+    else {
+      $( "#beers" ).css("display","none");
+      $("#message").html('Sorry you are not a member of this Draft');
+    }
+
+
+
+    var beers = result['beerNames']['values'];
+    var status = result['open'];
+
+    if (status = 'y') {
+      $("#status").html('Status is Open');
+    }
+    else {
+      $("#status").html('Status is Closed');
+    }
+
+    beers.forEach(function(element) {
+      $( "#beers" ).append('<li class="collection-item avatar"><i class="material-icons circle">folder</i><span class="title">'+element+'</span><a href="#!" class="secondary-content"><i class="material-icons">grade</i></a><div class="input-field col s12"><select><option value="">Vote</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div></li>');
+      $(document).ready(function() {
+          $('select').material_select();
+        });
+    });
+
+
+    }});
+
+  </script>
+</main>
+<footer id="footer"></footer>
+</body>
+</html>
