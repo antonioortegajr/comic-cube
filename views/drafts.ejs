@@ -1,5 +1,5 @@
 <html>
-<title>Beer League</title>
+<title>Comic Cube</title>
 <head>
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,7 +15,7 @@
 <main>
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Beer League</a>
+      <a href="#" class="brand-logo center">Comic Cube</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="/profile">/profile</a></li>
         <li><a href="/drafts">/drafts</a></li>
@@ -26,7 +26,7 @@
   <h2 class="header">Draft</h2>
   <h3 id="status"></h3>
   <div id="message"></div>
-  <ul id="beers" class="collection"></ul>
+  <ul id="comics" class="collection"></ul>
 
   <script>
     $(document).ready(function() {
@@ -40,7 +40,7 @@
   var apiEndpoint = "https://cm2qniz6nj.execute-api.us-west-2.amazonaws.com/alpha/users";
 
   //call API for users to check db for user ID
-  $.ajax({url: apiEndpoint+'?beerLeague='+draft, success: function(result){
+  $.ajax({url: apiEndpoint+'?comic-cube='+draft, success: function(result){
     var members = result['members']['values'];
     var admin = result['admin']['values'];
 
@@ -53,13 +53,13 @@
       }
     }
     else {
-      $( "#beers" ).css("display","none");
+      $( "#comics" ).css("display","none");
       $("#message").html('Sorry you are not a member of this Draft');
     }
 
 
 
-    var beers = result['beerNames']['values'];
+    var comics = result['comicNames']['values'];
     var status = result['open'];
 
     if (status = 'y') {
@@ -69,8 +69,8 @@
       $("#status").html('Status is Closed');
     }
 
-    beers.forEach(function(element) {
-      $( "#beers" ).append('<li class="collection-item avatar"><i class="material-icons circle">folder</i><span class="title">'+element+'</span><a href="#!" class="secondary-content"><i class="material-icons">grade</i></a><div class="input-field col s12"><select><option value="">Vote</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div></li>');
+    comics.forEach(function(element) {
+      $( "#comics" ).append('<li class="collection-item avatar"><i class="material-icons circle">folder</i><span class="title">'+element+'</span><a href="#!" class="secondary-content"><i class="material-icons">grade</i></a><div class="input-field col s12"><select><option value="">Vote</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div></li>');
       $(document).ready(function() {
           $('select').material_select();
         });

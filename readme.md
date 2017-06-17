@@ -17,5 +17,10 @@ variables set to the appropriate credentials.
 $ CLIENT_ID=__FACEBOOK_CLIENT_ID__ CLIENT_SECRET=__FACEBOOK_CLIENT_SECRET__ node server.js
 ```
 
+
+CLIENT_ID='1814145905472752' CLIENT_SECRET='3162cf21c36b14511cd3b1b5524575d1' node server.js
+
 Open a web browser and navigate to [http://localhost:3000/](http://localhost:3000/)
 to see the example in action.
+
+Do not commit the package.json file.
