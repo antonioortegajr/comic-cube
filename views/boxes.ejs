@@ -34,13 +34,13 @@
   });
     let searchParams = new URLSearchParams(window.location.search);
     let id = searchParams.get('id');
-    let draft = searchParams.get('draft');
+    let draft = searchParams.get('box');
 
   //set API endpoint
   var apiEndpoint = "https://cm2qniz6nj.execute-api.us-west-2.amazonaws.com/alpha/users";
 
   //call API for users to check db for user ID
-  $.ajax({url: apiEndpoint+'?comic-cube='+draft, success: function(result){
+  $.ajax({url: apiEndpoint+'?comic-cube='+box, success: function(result){
     var members = result['members']['values'];
     var admin = result['admin']['values'];
 

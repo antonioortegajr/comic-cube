@@ -77,7 +77,7 @@ app.get('/login',
 app.get('/login/facebook',
   passport.authenticate('facebook'));
 
-app.get('/login/facebook/return', 
+app.get('/login/facebook/return',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   function(req, res) {
     res.redirect('/');
@@ -87,6 +87,21 @@ app.get('/profile',
   require('connect-ensure-login').ensureLoggedIn(),
   function(req, res){
     res.render('profile', { user: req.user });
+  });
+app.get('/list',
+  require('connect-ensure-login').ensureLoggedIn(),
+  function(req, res){
+    res.render('list', { user: req.user });
+  });
+app.get('/settings',
+  require('connect-ensure-login').ensureLoggedIn(),
+  function(req, res){
+    res.render('settings', { user: req.user });
+  });
+app.get('/shops',
+  require('connect-ensure-login').ensureLoggedIn(),
+  function(req, res){
+    res.render('shops', { user: req.user });
   });
 
 app.listen(3000);
