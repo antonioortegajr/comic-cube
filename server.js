@@ -103,5 +103,10 @@ app.get('/shops',
   function(req, res){
     res.render('shops', { user: req.user });
   });
+app.get('/boxes',
+  require('connect-ensure-login').ensureLoggedIn(),
+  function(req, res){
+    res.render('boxes', { user: req.user });
+  });
 
 app.listen(3000);
