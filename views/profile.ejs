@@ -12,35 +12,66 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
  <script src="scripts/users.js"></script>
 </head>
-<body style="padding-left:5%; padding-right:5%;"">
+<body style="padding-left:5%; padding-right:5%;">
 <main>
   <nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">Comic Cube</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="/profile">/profile</a></li>
-        <li><a href="/boxes">/boxes</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/boxes">My Boxes</a></li>
+        <li><a href="/shops">Shops/Map</a></li>
+        <li><a href="/list">Comics List</a></li>
+        <li><a href="/settings">Settings</a></li>
       </ul>
     </div>
   </nav>
-  <div class="col s12 m7">
-  <h2 class="header">Welcome</h2>
+<div class="col s12 m7">
   <div class="card horizontal">
-    <div class="card-image">
-      <img src="http://silhouettesfree.com/holiday-and-festive/saint-patrick-s-day/comic-silhouette-image-2.png">
-    </div>
     <div class="card-stacked">
       <div class="card-content">
-        <p><div id="userName"><%= user.displayName %> </div></p>
-        <p><div id="message"></div></p>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
+        <p><div id="userName"><%= user.displayName %></div></p>
+        <p><div id="email">Email</div></p>
+        <p><div id="address">Address</div></p>
+		<p><div id="phone">Phone</div></p>
+		<p><div id="url">shop URL</div></p>
+		<p><div id="age">Age</div></p>
+		<p><div id="location">Location</div></p>
+		<p><div id="changeProfile" class="card-action"><a href="/settings">Update This Profile Info</a></div></p>
       </div>
     </div>
   </div>
 </div>
-<ul id="drafts" class="collection"></ul>
+<div class="col s12 m7">
+  <div class="card horizontal">
+    <div class="card-stacked">
+      <div class="card-content">
+		<ul id="boxes" class="collection">
+		  <li class="all-boxes-link"><a href="/boxes">See my boxes</a><- this button is conditional and doesn't apear when user has only one box</li>
+		  <li class="box">
+			<div class="store-name"><a href="#">Emerald City Comics (or for Stores, box owner name)</a></div>
+			<div class="box-number">Box Number: 141</div>
+		  </li>
+		  <li class="box">
+			<div class="store-name"><a href="#">Dragon Vine Comics (or for Stores, box owner name)</a></div>
+			<div class="box-number">Box Number: 33</div>
+		  </li>
+		</ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col s12 m7">
+  <div class="card horizontal">
+    <div class="card-stacked">
+      <div class="card-content">
+	  	<ul id="recommended" class="collection">
+		  <li>(recommended comic list here)</li>
+		</ul>
+      </div>
+    </div>
+  </div>
+</div>
 <div id="userId" style="display:none;"><%= user.id %></div>
   <script>
   //set API endpoint
@@ -75,10 +106,10 @@
 
     if (result != null){
       console.log(result);
-      var drafts = result['draft']['values'];
-      drafts.forEach(function(element) {
+      var boxes = result['box']['values'];
+      boxes.forEach(function(element) {
         console.log(element);
-        $( "#drafts" ).append( '<li class="collection-item" style="min-height: 60px;"><strong>comic Draft Name:</strong> '+element+'<a href="drafts?id='+userID+'&draft='+element+'" class="waves-effect waves-light btn right">Open</a></li>' );
+        $( "#boxes" ).append( '<li class="collection-item" style="min-height: 60px;"><strong>comic box Name:</strong> '+element+'<a href="boxes?id='+userID+'&box='+element+'" class="waves-effect waves-light btn right">Open</a></li>' );
       });
 
     }
